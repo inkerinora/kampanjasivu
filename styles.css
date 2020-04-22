@@ -1,23 +1,37 @@
+html {
+  background-color: darksalmon;
+}
 body > * {
     font-family: 'Montserrat';
   }
-  
-  h1, p {
+
+  header {
+    display: grid;
+    grid-template-rows: 110px auto;
+    grid-template-columns: 50px auto;
+    width: 100%;
+    height: 46.875rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .voimala {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+
+  nav {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    margin-top: 2rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  a {
+    margin-left: 5rem;
+    margin-right: 5rem;
   }
   
-  h1 {
-    margin-top: 5%;
-  }
-  
-  p {
-    margin-top: 2%;
-    margin-bottom: 5%;
-  }
-  
-  video {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
