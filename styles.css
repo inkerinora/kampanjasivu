@@ -24,7 +24,7 @@ body > * {
   nav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 2rem;
     grid-column-start: 1;
     grid-column-end: 3;
