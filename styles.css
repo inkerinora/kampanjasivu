@@ -1,8 +1,12 @@
 html {
-  background-color: darksalmon;
+    scroll-behavior: smooth;
 }
 body > * {
     font-family: 'Montserrat';
+  }
+
+  h1, h2, h3 {
+      font-family: 'Overpass';
   }
 
   header {
@@ -45,5 +49,6 @@ body > * {
     width: 100%;
     margin-left: 0;
     margin-bottom: 0;
+    margin-top: 30%;
   }
   
