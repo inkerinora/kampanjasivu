@@ -35,6 +35,13 @@ body {
     grid-column-end: 3;
   }
 
+  #page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 40px;
+  }
+
   a {
     margin-left: 5rem;
     margin-right: 5rem;
