@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    background-color: #F7C59F;
 }
 body > * {
     font-family: 'Montserrat';
