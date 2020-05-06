@@ -40,12 +40,14 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
     padding: 5%;
   }
 
   #text {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 80%;
     margin-left: 10%;
   }
