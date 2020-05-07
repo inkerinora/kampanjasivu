@@ -109,6 +109,21 @@ body {
     max-width: 55%;
   }
 
+  #articleBox {
+    max-width: 25%;
+    background-color: #B5C3D0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 7%;
+  }
+
+  #articleBox p {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
   #navBox {
     max-width: 25%;
     background-color: #B5C3D0;
