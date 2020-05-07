@@ -2,11 +2,26 @@ html {
     scroll-behavior: smooth;
     background-color: #F7C59F;
 }
+
 body {
     font-family: 'Montserrat';
     margin: 0;
     min-height: 100%;
     width: 100%;
+  }
+
+  a:link {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   h1, h2, h3 {
@@ -67,7 +82,7 @@ body {
     width: 100%;
     margin-left: 0;
     margin-bottom: 0;
-    margin-top: 30%;
+    margin-top: 20%;
     position: absolute;
   }
 
@@ -79,5 +94,32 @@ body {
   #ig {
     margin-left: 5%;
     margin-right: 5%;
+  }
+
+  #artikkelit {
+    margin-left: 7%;
+    margin-top: 5%;
+  }
+
+  #artikkelit h2 {
+    margin-top: 5%;
+  }
+
+  #artikkelit p {
+    max-width: 55%;
+  }
+
+  #navBox {
+    max-width: 25%;
+    background-color: #B5C3D0;
+    float: right;
+    margin-right: 7%;
+    text-align: center;
+    margin-top: -40%;
+  }
+
+  #navBox p {
+    margin-top: 15%;
+    margin-bottom: 15%;
   }
   
