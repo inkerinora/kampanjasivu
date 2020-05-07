@@ -65,7 +65,6 @@ body {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    padding: 5%;
   }
 
   #text {
@@ -74,6 +73,10 @@ body {
     align-items: center;
     width: 80%;
     margin-left: 10%;
+  }
+
+  #video {
+    margin-bottom: 10%;
   }
 
   a {
