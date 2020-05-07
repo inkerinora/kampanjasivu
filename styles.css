@@ -28,6 +28,11 @@ body {
       font-family: 'Overpass';
   }
 
+  p {
+    font-family: 'Montserrat';
+    line-height: 27px;
+  }
+
   #header {
     display: grid;
     grid-template-rows: 110px auto;
