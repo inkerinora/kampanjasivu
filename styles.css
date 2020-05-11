@@ -55,6 +55,9 @@ body {
     grid-row-start: 2;
     grid-column-start: 2;
     font-size: 60px;
+    font-family: Overpass;
+    font-weight: lighter;
+    font-style: italic;
   }
 
   nav {
