@@ -39,5 +39,5 @@ function showSlides(n){
 
   window.addEventListener("load",function() {
     showSlides(slideIndex);
-    myTimer = setInterval(function(){plusSlides(1)}, 3500);
+    myTimer = setInterval(function(){plusSlides(1)}, 3000);
 })
