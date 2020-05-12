@@ -9,6 +9,27 @@ body {
     width: 100%;
   }
 
+  @media only screen and (max-width: 1100px){
+    body {
+      font-size: 14px;
+    }
+    a {
+      font-size: 12px;
+    }
+    #artikkelit, #ukk, #text h1 {
+      margin-top: 20%;
+    }
+  }
+
+  @media only screen and (min-width: 1100px){
+      body {
+        font-size: 16px;
+    }
+    #artikkelit, #ukk, #text h1 {
+      margin-top: 10%;
+    }
+  }
+
   a:link {
     text-decoration: none;
     color: black;
@@ -148,10 +169,6 @@ body {
     margin-left: 10%;
   }
 
-  #text h1 {
-    margin-top: 10%;
-  }
-
   #video {
     margin-bottom: 10%;
     margin-top: 5%;
@@ -185,14 +202,13 @@ body {
 
   #artikkelit {
     margin-left: 7%;
-    margin-top: 10%;
   }
 
   #artikkelit h2 {
     margin-top: 5%;
   }
 
-  #artikkelit p, #artikkelit h3 {
+  #artikkelit p, #artikkelit h3, #artikkelit h2 {
     max-width: 55%;
   }
 
@@ -239,11 +255,10 @@ body {
 
   #ukk {
     margin-left: 7%;
-    margin-top: 10%;
   }
 
   #ukk img, #ukk p {
-    width: 55%;
+    max-width: 55%;
   }
 
   
