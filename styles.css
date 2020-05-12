@@ -94,7 +94,6 @@ body {
   }
 
   #quote {
-    position: relative;
     max-width: 50%;
     background-image: url("Kuvat/quotes.jpg");
     text-align: center;
