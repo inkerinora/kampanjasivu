@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+    <head>
+        <style>
+
+            body{
+                font-size: 20px;
+                color: #333;
+                font-weight: 300;
+                text-align: center;
+                background-color: #f8f6f0;
+            }
+            h1{
+                font-weight: 300;
+                margin: 0px;
+                padding: 10px;
+                font-size: 20px;
+                background-color: #444;
+                color: #fff;
+            }
+            .question{
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+            .answers {
+                margin-bottom: 20px;
+                text-align: left;
+                display: inline-block;
+            }
+            .answers label{
+                display: block;
+                margin-bottom: 10px;
+            }
+            button{
+                font-size: 22px;
+                background-color: #279;
+                color: #fff;
+                border: 0px;
+                border-radius: 3px;
+                padding: 20px;
+                cursor: pointer;
+                margin-bottom: 20px;
+            }
+            button:hover{
+                background-color: #38a;
+            }
+
+            .slide{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+            .active-slide{
+                opacity: 1;
+                z-index: 2;
+            }
+            .quiz-container{
+                position: relative;
+                height: 200px;
+                margin-top: 40px;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Overpass:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>Tietovisa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    </head>
+
+    <body>
+
+        <header>
+            <img src="Kuvat/Header.jpg" id="header" alt="taivas">
+            <nav id="nav1">
+                <div><a href="index.html">Koti</a></div>
+                <div><a href="info.html">Tietoa meistä</a></div>
+                <div><a href="ukk.html">UKK</a></div>
+                <div><a href="artikkelit.html">Artikkelit</a></div>
+                <div><a href="tietovisa.html">Tietovisa</a></div>
+                <div><a href="#footercontent">Ota yhteyttä!</a></div>
+            </nav>
+        </header>
+        <h1>Tietovisa tuulivoimasta</h1>
+        <div class="quiz-container">
+            <div id="quiz"></div>
+        </div>
+        <button id="previous">Edellinen kysymys</button>
+        <button id="next">Seuraava kysymys</button>
+        <button id="submit">Tarkista vastaukset</button>
+        <div id="results"></div>
+        <script>
+            (function(){
+                function buildQuiz(){
+                    const output = [];
+
+                    myQuestions.forEach(
+                        (currentQuestion, questionNumber) => {
+
+                            const answers = [];
+
+                            for(let option in currentQuestion.answers){
+
+                                answers.push(
+                                    `<label>
+                                        <input type="radio" name="question${questionNumber}" value="${option}">
+                                        ${option} :
+                                        ${currentQuestion.answers[option]}
+                                    </label>`
+                                );
+                            }
+
+                            output.push(
+                                `<div class="slide">
+                                    <div class="question"> ${currentQuestion.question} </div>
+                                    <div class="answers"> ${answers.join("")} </div>
+                                </div>`
+                            );
+                        }
+                    );
+
+                    quizContainer.innerHTML = output.join('');
+                }
+
+                function showResults(){
+
+                    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+                    let numCorrect = 0;
+
+                    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+                        const answerContainer = answerContainers[questionNumber];
+                        const selector = `input[name=question${questionNumber}]:checked`;
+                        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+                        if(userAnswer === currentQuestion.correctAnswer){
+                            numCorrect++;
+                            answerContainers[questionNumber].style.color = 'lightgreen';
+                        }
+                        else{
+                            answerContainers[questionNumber].style.color = 'red';
+                        }
+                    });
+                    resultsContainer.innerHTML = `Sait ${numCorrect} pistettä ${myQuestions.length}:sta`;
+                }
+
+                function showSlide(n) {
+                    slides[currentSlide].classList.remove('active-slide');
+                    slides[n].classList.add('active-slide');
+                    currentSlide = n;
+                    if(currentSlide === 0){
+                        previousButton.style.display = 'none';
+                    }
+                    else{
+                        previousButton.style.display = 'inline-block';
+                    }
+                    if(currentSlide === slides.length-1){
+                        nextButton.style.display = 'none';
+                        submitButton.style.display = 'inline-block';
+                    }
+                    else{
+                        nextButton.style.display = 'inline-block';
+                        submitButton.style.display = 'none';
+                    }
+                }
+
+                function showNextSlide() {
+                    showSlide(currentSlide + 1);
+                }
+
+                function showPreviousSlide() {
+                    showSlide(currentSlide - 1);
+                }
+
+                const quizContainer = document.getElementById('quiz');
+                const resultsContainer = document.getElementById('results');
+                const submitButton = document.getElementById('submit');
+                const myQuestions = [
+                    {
+                        question: "Kuinka monta tuulivoimalaa Suomessa oli vuoden 2019 lopulla?",
+                        answers: {
+                            a: "354",
+                            b: "554",
+                            c: "754"
+                        },
+                        correctAnswer: "c"
+                    },
+                    {
+                        question: "Aiheuttaako tuulivoimalan infraääni terveysongelmia?",
+                        answers: {
+                            a: "Kyllä",
+                            b: "Ei"
+                        },
+                        correctAnswer: "b"
+                    },
+                    {
+                        question: "Mikä seuraavista on uusiutuva energianlähde?",
+                        answers: {
+                            a: "Turve",
+                            b: "Tuulivoima",
+                            c: "Kivihiili"
+                        },
+                        correctAnswer: "b"
+                    }
+                ];
+
+                buildQuiz();
+
+                const previousButton = document.getElementById("previous");
+                const nextButton = document.getElementById("next");
+                const slides = document.querySelectorAll(".slide");
+                let currentSlide = 0;
+
+                showSlide(currentSlide);
+
+                submitButton.addEventListener('click', showResults);
+                previousButton.addEventListener("click", showPreviousSlide);
+                nextButton.addEventListener("click", showNextSlide);
+            })();
+        </script>
+
+
+
+        <footer>
+            <div id="footercontent">
+                <h3>Ota yhteyttä:</h3>
+                <p>tuulellatulevaisuuteen@gmail.com</p>
+                <h3>Meidät löytää myös somesta!</h3>
+                <div id="somelogot">
+                    <a href="https://www.instagram.com/tuulellatulevaisuuteen/"><img src="Kuvat/instagram.png" id="ig" alt="IG"></a>
+                    <a href="https://twitter.com/tuulikampanja"><img src="Kuvat/twitter.png" id="twitter" alt="Twitter"></a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>
