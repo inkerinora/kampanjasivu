@@ -94,7 +94,7 @@ body {
       margin-left: 7%;
     }
     #page2right {
-      margin-left: 15%;
+      margin-left: 10%;
     }
     #tietovisalinkki {
       font-size: 22px;
@@ -207,7 +207,7 @@ body {
   }
 
   #quote {
-    max-width: 50%;
+    max-width: 60%;
     height: 45%;
     background-image: url("Kuvat/quotes.jpg");
     text-align: center;
@@ -266,7 +266,7 @@ body {
   }
 
   #tietovisalinkki {
-    max-width: 61%;
+    max-width: 71%;
     height: 42%;
     display: flex;
     align-items: center;
