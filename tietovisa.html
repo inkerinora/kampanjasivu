@@ -3,21 +3,16 @@
 
     <head>
         <style>
-
             body{
                 font-size: 20px;
-                color: #333;
                 font-weight: 300;
                 text-align: center;
-                background-color: #f8f6f0;
             }
             h1{
                 font-weight: 300;
                 margin: 0px;
                 padding: 10px;
                 font-size: 20px;
-                background-color: #444;
-                color: #fff;
             }
             .question{
                 font-size: 30px;
@@ -76,7 +71,6 @@
     <body>
 
         <header>
-            <img src="Kuvat/Header.jpg" id="header" alt="taivas">
             <nav id="nav1">
                 <div><a href="index.html">Koti</a></div>
                 <div><a href="info.html">Tietoa meistä</a></div>
@@ -86,6 +80,25 @@
                 <div><a href="#footercontent">Ota yhteyttä!</a></div>
             </nav>
         </header>
+        <script>
+            $(document).ready(function(){
+                $("a").on('click', function(event) {
+
+                    if (this.hash !== "") {
+                        event.preventDefault();
+
+                        var hash = this.hash;
+
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 5000, function(){
+
+                            window.location.hash = hash;
+                        });
+                    }
+                });
+            });
+        </script>
         <h1>Tietovisa tuulivoimasta</h1>
         <div class="quiz-container">
             <div id="quiz"></div>
@@ -190,6 +203,24 @@
                             c: "754"
                         },
                         correctAnswer: "c"
+                    },
+                    {
+                        question: "Mihin vuodenaikaan Suomessa tuulee eniten",
+                        answers: {
+                            a: "Kesällä",
+                            b: "Syksyllä",
+                            c: "Talvella"
+                        },
+                        correctAnswer: "c"
+                    },
+                    {
+                        question: "Kuinka suuri osuus Suomen energiankulutuksesta katetaan tuulivoimalla?",
+                        answers: {
+                            a: "5-6%",
+                            b: "9-10%",
+                            c: "12-13%"
+                        },
+                        correctAnswer: "b"
                     },
                     {
                         question: "Aiheuttaako tuulivoimalan infraääni terveysongelmia?",
