@@ -25,8 +25,15 @@ body {
     #video {
       width: 100%;
     }
-    #articleBox, #quote {
+    #articleBox, #quote, #tietovisalinkki {
       width: 50%;
+    }
+    #quote {
+      margin-top: 10%;
+    }
+    #tietovisalinkki {
+      height: 20%;
+      font-size: 16px;
     }
     #sanomat {
       margin-left: 10%;
@@ -51,7 +58,12 @@ body {
     }
     #articleBox, #quote {
       width: 40%;
-      margin-left: 7%;
+      margin-left: 10%;
+    }
+    #tietovisalinkki {
+      margin-left: 10%;
+      width: 50%;
+      font-size: 22px;
     }
     #quote .author {
       font-size: 15px;
@@ -81,8 +93,11 @@ body {
       max-width: 25%;
       margin-left: 7%;
     }
-    #quote {
+    #page2right {
       margin-left: 10%;
+    }
+    #tietovisalinkki {
+      font-size: 22px;
     }
     footer {
       height: 45%;
@@ -186,15 +201,20 @@ body {
     width: 100%;
   }
 
+  #page2right {
+    display: flex;
+    flex-direction: column;
+  }
+
   #quote {
-    max-width: 50%;
+    max-width: 60%;
+    height: 45%;
     background-image: url("Kuvat/quotes.jpg");
     text-align: center;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-right: 7%;
-    margin-top: 10%;
     margin-bottom: 10%;
     box-shadow: 0px 2px 4px #2D2E2E;
     padding-right: 10%;
@@ -243,6 +263,19 @@ body {
 
   #video p {
     text-align: center;
+  }
+
+  #tietovisalinkki {
+    max-width: 71%;
+    height: 42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Overpass;
+    border-style: solid;
+    border-color: #F7C59F; 
+    border-width: thick;
   }
 
   footer {
