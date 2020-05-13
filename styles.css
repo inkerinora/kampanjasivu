@@ -241,6 +241,10 @@ body {
     width: 100%;
   }
 
+  #video p {
+    text-align: center;
+  }
+
   footer {
     background-color: #6482A6;
     text-align: center;
