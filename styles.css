@@ -19,18 +19,20 @@ body {
     #page3, #page2 {
       flex-direction: column;
     }
+    #page2 {
+      margin-left: 20%;
+    }
     #video {
       width: 100%;
     }
     #articleBox, #quote {
       width: 50%;
-      margin-left: 22%;
     }
     #sanomat {
       margin-left: 10%;
     }
-    #footer {
-      height: 10%;
+    footer {
+      height: 35%;
     }
   }
 
@@ -46,6 +48,16 @@ body {
     }
     #header {
       margin-top: 4%;
+    }
+    #articleBox, #quote {
+      width: 40%;
+      margin-left: 7%;
+    }
+    #quote .author {
+      font-size: 15px;
+    }
+    footer {
+      height: 40%;
     }
   }
 
@@ -71,6 +83,9 @@ body {
     }
     #quote {
       margin-left: 10%;
+    }
+    footer {
+      height: 45%;
     }
   }
 
@@ -227,7 +242,6 @@ body {
   }
 
   footer {
-    height: 35%;
     background-color: #6482A6;
     text-align: center;
     display: flex;
